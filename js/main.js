@@ -291,13 +291,13 @@ flag++;
 
     /////////////////////////////////////////////////
     ///**********************************************
-    //  Start Icons in the contentDepartmentOne.html 
+    //  Start Icons in the department-content.html 
     ///***********************************************
     /////////////////////////////////////////////////
         $(".content-d1-last .lastit li").click(function() {
-            if($(window).outerWidth() > 575) {
+            // if($(window).outerWidth() > 575) {
                 $(this).find(".data").toggle(400).parent().siblings().find(".data").hide(400);
-            }
+            // }
         });    
 
 

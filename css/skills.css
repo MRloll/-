@@ -34,6 +34,7 @@ section {
     height: 100%;
     padding: 30px 20px;
     overflow: hidden;
+    background-color: white;
 }
 
 .info .wrapper .item .text .show-more {
