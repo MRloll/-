@@ -310,6 +310,11 @@ flag++;
     $("header .nav-toggler").click(function() {
 
         $("header .nav-links").toggleClass("shown")
+        if($("header .nav-links").hasClass("shown")) {
+            $("body").css("overflow", "hidden");
+        } else {
+            $("body").css("overflow", "auto");
+        }
 
     });
 
