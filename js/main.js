@@ -312,9 +312,6 @@ flag++;
         $("header .nav-links").toggleClass("shown")
 
     });
-    /*Ending Walid*/
-
-
 
 });
 

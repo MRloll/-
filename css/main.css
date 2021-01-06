@@ -304,6 +304,7 @@ header .top-icon img.video {
     width: 32px;
     top: 40px;
     left: 71px;
+    z-index: 1;
 }
 
 header .navbar .navbar-brand {
@@ -347,7 +348,7 @@ header .navbar .nav-toggler span {
 }
 
 header .nav-links {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     transform: translate(100%, 0px);
@@ -873,6 +874,7 @@ header .navbar .logo-container {
     *********** start scholarship services & female dorm ****
     *********************************************************
 */
+
 .scholarship-services h3 {
     font-size: 20px;
 }
@@ -899,6 +901,12 @@ header .navbar .logo-container {
 
 .female-dorm ul.second {
     padding-right: 88px;
+}
+
+@media (max-width: 576px) {
+    .scholarship-services {
+        margin-bottom: 200px;
+    }
 }
 
 @media (min-width: 768px) {
