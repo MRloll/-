@@ -1,37 +1,8 @@
 /*global console*/
 $(function(){
 
-//     var x;
-//    for( i = 1; i<=14 ;i++){
-//     x = 'dc';
-//     x = x + i;
-//    $(".card p").css('background-color',x);
-//    console.log(x)
-//    }  
-   
 
-/* Start Handling Contact Logo */
-/*var logoNum = 0;
-setInterval(function(){
-    logoNum++;
-    if(logoNum % 2 == 0){
-        $('.contact-logo img').attr('src',"img/contact.png");
-        console.log(logoNum);
-    }
-    else{
-        $('.contact-logo img').attr('src',"img/Contact-logo2.png")
-        console.log(logoNum);
-    }
 
-},1000);
-*/
-/* End Handlig Contact Logo */
-
-/* */
-$('.video-img-container').click(function(){
-  $(this).css('display','none')
-    $('.video-vemo-container').fadeIn(500);
-})
 
 /* */
 var flag = 0;
@@ -53,14 +24,14 @@ flag++;
 });
 
 
-/*Starting Walid*/
+
 
     //displaying and hiding the ites on click
     $(".info .wrapper .item, .investment-sites .wrapper .item .details").on("click", function(e) {
         var allDetails = $(this).parents(".row, .custom-row").children()
                                 .find(".item .details")
                                 .not($(this).find(".details"));
-                                
+        
         if(allDetails.is(":visible")) {
             return;
         } else {
@@ -70,13 +41,20 @@ flag++;
     })
 
     
-    var investmentItemWrapper = $(".investment-sites .custom-row .wrapper .holder");
+    var investmentItemWrapper = $(".investment-sites .custom-row .wrapper .holder"),
+        info = $(".info .wrapper .item");
     //this function adjusts the height of the detaials depend on the item height 
     //mutiblied by 3 times
     //and also adjusts the width 
     function adjustHeightAndWidth() {
             detailsWidth = investmentItemWrapper.outerWidth(),
             detailsHeight = investmentItemWrapper.outerHeight();
+            detailsHeightInInfor =  info.outerHeight();
+
+        if($(window).width() < 991) {
+            $(".info .wrapper .item .details")
+                .css({"min-height": detailsHeightInInfor * 2 + 30, "height": "auto"})
+        }
 
         //making Details height equal for three Items
         $(".investment-sites .wrapper .item .details")
@@ -85,6 +63,8 @@ flag++;
         
         //making Detials width equal for two Items in small screens
         if($(window).outerWidth() < 991) {
+
+            //commented bcs the client needs the boxes open to dowm
             $(".investment-sites .wrapper span.vertical-detector").css("bottom", -detailsHeight - 100)
             $(".investment-sites .wrapper .item .details")
                 .outerWidth(detailsWidth * 2 + 30)
@@ -92,10 +72,12 @@ flag++;
             $(".investment-sites .wrapper span.vertical-detector").css("bottom", "-100px")
         }
 
+        
         //making the second row of items opens to top 
-        //not to bottom just to stay in the continer
+        //not to bottom just to stay in the continer  
+        //only on xlarge screens 
         $(investmentItemWrapper).each(function() {
-            if($(window).outerWidth() > 992) {
+            if($(window).outerWidth() > 1200) {
                 if($(this).parent().position().top == $(this).parent().outerHeight(true) ) {
                     $(this).find(".details").css({
                         "top": "calc(-100% - 30px)"
@@ -106,18 +88,18 @@ flag++;
                     "top": "0"
                 })
             }
-        })
+        });
     }
     adjustHeightAndWidth();
 
 
     var horizontalDetectorSpans = $(".investment-sites .custom-row .wrapper span.horizontal-detector"),
-        verticalalDetectorSpans = $(".investment-sites .custom-row .wrapper span.vertical-detector"),
+        verticalalDetectorSpans = $(".investment-sites .custom-row .wrapper span.vertical-detector"),  //commented bcs the client needs the boxes open to dowm
         customRow = $(".investment-sites .custom-row");
     function detectingOffset() {
         if(customRow.offset()) {
-            var containerLeftOffset = customRow.offset().left,            
-            customRowBottomOffset = customRow.find(".row-bottom-offset").offset().top;
+            var containerLeftOffset = customRow.offset().left;           
+            customRowBottomOffset = customRow.find(".row-bottom-offset").offset().top; 
         }
 
         //making the items on the left opens to right not to left just to not make
@@ -139,22 +121,26 @@ flag++;
 
         //making the lowest row of items opens to top 
         //not to bottom just to stay in the continer
+        //only on xlarge screens 
         verticalalDetectorSpans.each(function() {
-            if($(this).offset().top > customRowBottomOffset && verticalalDetectorSpans.length > 12) {
-                $(this).parents(".wrapper").find(".item .details").css({
-                    "top": "calc(-200% - 60px)",
-                    "height": "auto"
-                })
+            if($(window).outerWidth() > 1200) {
+                if($(this).offset().top > customRowBottomOffset && verticalalDetectorSpans.length > 12) {
+                    $(this).parents(".wrapper").find(".item .details").css({
+                        "top": "calc(-200% - 60px)",
+                        "height": "auto"
+                    })
+                }
             }
         });
 
     }
     detectingOffset()
 
+
+
     $(window).on("resize", function() {
         adjustHeightAndWidth();
         detectingOffset();
-
     })
 
 
@@ -263,6 +249,11 @@ flag++;
    }
     
    //the previous function call
+   $(document).on('swipeleft', 'body', function(){ 
+        console.log("yes")
+   });
+   
+   
    $(".home-carousel #nested-carousel a.prev").click(function() {
 
         prev($(".home-carousel #nested-carousel .slide-inner > div.active"), 
@@ -289,15 +280,70 @@ flag++;
         }
     });
 
-    /////////////////////////////////////////////////
+
+
+
+    //nested slide touch 
+    var xDown = null;                                                        
+    var yDown = null;
+
+    function getTouches(evt) {
+        return evt.touches ||       // browser API
+        evt.originalEvent.touches; // jQuery
+    }                                                     
+    
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };                                                
+
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                if(activeSlide == 1) { //left
+                    prev($(".home-carousel #nested-carousel .slide-inner > div.active"), 
+                        $(".home-carousel #nested-carousel .custom-indicators li.prev"), 
+                        $(".home-carousel #nested-carousel .custom-indicators li.next")
+                    );
+                }
+            } else { /* right swipe */
+                    next($(".home-carousel #nested-carousel .slide-inner > div.active"), 
+                    $(".home-carousel #nested-carousel .custom-indicators li.prev"), 
+                    $(".home-carousel #nested-carousel .custom-indicators li.next")
+                );
+            }                       
+        } 
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    $(".home-carousel #nested-carousel").on('touchstart', handleTouchStart);
+    $(".home-carousel #nested-carousel").on('touchmove', handleTouchMove);
+    
+
+            
+
+    ////////////////////////////////////////////
     ///**********************************************
     //  Start Icons in the department-content.html 
     ///***********************************************
     /////////////////////////////////////////////////
-        $(".content-d1-last .lastit li").click(function() {
-            // if($(window).outerWidth() > 575) {
+        $(".content-d1-last .lastit li.phone").click(function(e) {
+            if($(window).outerWidth() > 576) {
+                e.preventDefault();
                 $(this).find(".data").toggle(400).parent().siblings().find(".data").hide(400);
-            // }
+            }
         });    
 
 
@@ -318,5 +364,8 @@ flag++;
 
     });
 
+    $(".mobile-direction").on("swiperight")
+
 });
 
+  

@@ -3,15 +3,15 @@
     *********** start Events section *************
     **********************************************
 */
-.events .container {
+.events .custom-container {
     max-height: 600px;
     overflow: auto;
 }
-.events .container::-webkit-scrollbar-thumb {
+.events .custom-container::-webkit-scrollbar-thumb {
     background: #707070;
     border-radius: 10px;
 }
-.events .container::-webkit-scrollbar {
+.events .custom-container::-webkit-scrollbar {
     width: 7px;
 }
 
@@ -141,7 +141,7 @@
     background-color: #a7a4a4;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
     .events .custom-table thead th,
     .events .custom-table tbody th,
     .events .custom-table tbody td {

@@ -14,9 +14,25 @@ body {
     box-sizing: border-box;
     background-image: url(../img/IMG_8212.png);
     background-size: cover;
-    /* background-position:center center ;*/
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px;
 }
 
+.custom-container {
+    width: 100%;
+    margin: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .custom-container {
+        width: 90%;
+    }
+}
 :root {
     --dc1: #99c7da; /* مركز التوجيه و الارشاد*/
     --dc2: #129b9f; /* مركز المهارات الطلابية */
@@ -34,94 +50,8 @@ body {
     --dc14: #421e69; /*  التغذية */
 }
 
-/* Start FrameWork */
-.intro-logo {
-    min-height: 500px;
-    min-height: 500px;
-}
-
-.intro-logo p {
-    font-size: 30px;
-}
-
-@media (max-width: 768px) {
-    .intro-logo p {
-        font-size: 20px;
-    }
-}
-.dc1 {
-    background-color: #99c7da;
-}
-
-.dc2 {
-    background-color: #129b9f;
-}
-
-.dc3 {
-    background-color: #6ebdc3;
-}
-
-.dc4 {
-    background-color: #007eb9;
-}
-
-.dc5 {
-    background-color: #00568e;
-}
-
-.dc6 {
-    background-color: #1b4596;
-}
-
-.dc7 {
-    background-color: #141d50;
-}
-
-.dc8 {
-    background-color: #00388e;
-}
-
-.dc9 {
-    background-color: #4aa0ca;
-}
-
-.dc10 {
-    background-color: #443c90;
-}
-
-.dc11 {
-    background-color: #602c86;
-}
-
-.dc12 {
-    background-color: #a1559c;
-}
-
-.dc13 {
-    background-color: #756cae;
-}
-
-.dc14 {
-    background-color: #421e69;
-}
-
-/* Fonts */
-.f-25 {
-    font-size: 25px;
-}
-/* ********** */
-.lh-1 {
-    line-height: 1;
-}
-
-.lh-n {
-    line-height: 1.5;
-}
-/* End FrameWork */
-
 section {
     position: relative;
-    z-index: 1;
 }
 
 /*
@@ -141,17 +71,27 @@ a {
     height: 700px;
     bottom: 0;
     width: 400px;
+    z-index: -1;
 }
 
 .mobile-direction {
     display: none;
     margin-top: 50px;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.4s ease-out;
 }
 
 section.direction {
     display: flex;
     flex-direction: column-reverse;
-    padding-bottom: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 65px;
+    margin: 0 !important;
+    padding: 0;
+    z-index: 1;
 }
 
 .direction i {
@@ -168,6 +108,7 @@ section.direction {
     }
     .mobile-direction {
         display: flex;
+        width: 100%;
     }
     section.direction {
         display: none;
@@ -176,29 +117,7 @@ section.direction {
 
 /*
     **********************************************
-    *********** Start Video Welcom **********
-    **********************************************
-*/
-
-.videoWelcom .video-img-container {
-    margin: 0 auto;
-}
-.videoWelcom .video-img-container img {
-    border-radius: 15px;
-}
-.dir i {
-    background-color: #129b9f;
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: white;
-}
-.video-vemo-container {
-    display: none;
-}
-
-/*
-    **********************************************
-    *********** Start Intro  **********************
+    *********** Start Intro  *********************
     **********************************************
 */
 
@@ -428,6 +347,7 @@ header .navbar .logo-container {
 .home-carousel .main-carousel .carousel-item {
     background-color: white;
     height: 100%;
+    border-radius: 10px;
 }
 
 .home-carousel .main-carousel .carousel-item .wrapper .img-wrapper {
@@ -447,8 +367,8 @@ header .navbar .logo-container {
 }
 
 .home-carousel .main-carousel .carousel-item .wrapper .text {
-    padding-top: 30px;
-    font-size: 25px;
+    padding: 30px 20px;
+    font-size: 15px;
 }
 
 /*******************************
@@ -566,6 +486,9 @@ header .navbar .logo-container {
     z-index: 2;
 }
 
+.content-d1-last {
+    background-color: white;
+}
 .download-book button {
     background-color: #2f3891;
     border-color: transparent;
@@ -574,6 +497,11 @@ header .navbar .logo-container {
     color: white;
     outline: none;
     cursor: pointer;
+}
+
+.download-book button img {
+    vertical-align: baseline;
+    margin-right: 10px;
 }
 /**************
  start media query flor carousel 
@@ -588,11 +516,18 @@ header .navbar .logo-container {
     .home-carousel .links ul li {
         font-size: 20px;
     }
+    .home-carousel .main-carousel .carousel-item .wrapper .text {
+        padding-top: 30px;
+        font-size: 25px;
+    }
 }
 
 @media (min-width: 768px) {
     .home-carousel .links ul li {
         font-size: 30px;
+    }
+    .home-carousel .carousel-item #nested-carousel .text ul {
+        font-size: 21px;
     }
 }
 
@@ -602,7 +537,6 @@ header .navbar .logo-container {
     }
 
     .home-carousel .carousel-item #nested-carousel .text ul {
-        font-size: 18px;
         height: 90%;
         width: 50%;
         padding: 0 20px;
@@ -613,6 +547,12 @@ header .navbar .logo-container {
     }
 }
 
+@media (min-width: 1200px) {
+    .home-carousel .main-carousel .carousel-item .wrapper .img-wrapper img {
+        /* height: 80%; */
+        width: 75%;
+    }
+}
 /*
     **********************************************
     *********** start Departments *************
@@ -630,30 +570,35 @@ header .navbar .logo-container {
 }
 
 .departments div[class^="col-"] {
-    padding-right: 4px;
-    padding-left: 4px;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 
 .departments .card {
     margin-bottom: 20px;
-    border-color: transparent;
+    border: none;
+    border-top-right-radius: 16px;
     box-shadow: 1px 1px 1px 1px #ddd;
 }
 
 .departments .card img {
     border-radius: 12px 12px 0 0;
-    height: 130px;
+    min-height: 60px;
 }
 .departments .card .card-body {
-    min-height: 70px;
+    min-height: 80px;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .departments .card .card-body .card-title {
-    font-size: 16px;
+    font-size: 10px;
     display: inline-block;
     line-height: 1;
 }
 
-@media (max-width: 576px) {
+@media (min-width: 576px) {
     .departments .card {
         min-height: 175px;
     }
@@ -661,10 +606,27 @@ header .navbar .logo-container {
         font-size: 13px;
     }
     .departments .card img {
-        height: 80px;
+        height: 120px;
     }
 }
 
+@media (min-width: 768px) {
+    .departments .card img {
+        height: 120px;
+    }
+    .departments .card .card-body .card-title {
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 992px) {
+    .departments .card img {
+        height: 170px;
+    }
+    .departments .card .card-body .card-title {
+        font-size: 20px;
+    }
+}
 /*
     **********************************************
     *********** start intro logos  *************
@@ -681,6 +643,15 @@ section.intro-up {
 
 .intro-up small {
     font-size: 12px;
+}
+
+.intro-logo {
+    min-height: 500px;
+    padding-bottom: 20px;
+}
+
+.intro-logo p {
+    font-size: 30px;
 }
 
 .intro-logo ul li {
@@ -707,6 +678,86 @@ section.intro-up {
     .contact .contact-logo img {
         width: 120px;
     }
+    .intro-logo {
+        min-height: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-logo p {
+        font-size: 20px;
+    }
+    .intro-logo .contact-logo img {
+        width: 150px;
+    }
+}
+.dc1 {
+    background-color: #99c7da;
+}
+
+.dc2 {
+    background-color: #129b9f;
+}
+
+.dc3 {
+    background-color: #6ebdc3;
+}
+
+.dc4 {
+    background-color: #007eb9;
+}
+
+.dc5 {
+    background-color: #00568e;
+}
+
+.dc6 {
+    background-color: #1b4596;
+}
+
+.dc7 {
+    background-color: #141d50;
+}
+
+.dc8 {
+    background-color: #00388e;
+}
+
+.dc9 {
+    background-color: #4aa0ca;
+}
+
+.dc10 {
+    background-color: #443c90;
+}
+
+.dc11 {
+    background-color: #602c86;
+}
+
+.dc12 {
+    background-color: #a1559c;
+}
+
+.dc13 {
+    background-color: #756cae;
+}
+
+.dc14 {
+    background-color: #421e69;
+}
+
+/* Fonts */
+.f-25 {
+    font-size: 25px;
+}
+/* ********** */
+.lh-1 {
+    line-height: 1;
+}
+
+.lh-n {
+    line-height: 1.5;
 }
 
 /*
@@ -734,19 +785,22 @@ section.intro-up {
     height: auto;
     margin: auto;
 }
+
 @media (max-width: 576px) {
+    .depart-cards .card {
+        height: 180px;
+    }
+
     .depart-cards p {
         font-size: 14px;
     }
-}
 
-@media (max-width: 576px) {
     .direction {
         display: none;
     }
 
     .depart-cards .card img {
-        width: 100px;
+        width: 70px;
     }
     .department img {
         width: 140px;
@@ -758,6 +812,12 @@ section.intro-up {
     *********** start content *************
     **********************************************
 */
+.content .row > div {
+    background-image: url(../img/IMG_8212.png);
+    background-size: cover;
+    background-color: white;
+}
+
 .content .note p {
     width: 90%;
     line-height: 2;
@@ -792,7 +852,7 @@ section.intro-up {
     border-radius: 6px;
     border-color: rgba(0, 0, 0, 0.1);
     margin-left: 5%;
-    width: 60%;
+    width: 56%;
     outline: none;
 }
 
@@ -804,12 +864,19 @@ section.intro-up {
     border-radius: 12px;
     color: white;
     outline: none;
-    width: 34%;
+    width: 38%;
     cursor: pointer;
+    vertical-align: baseline;
 }
 
 .lastit button {
     background-color: #129b9f;
+}
+
+.lastit button img,
+.lists button img {
+    vertical-align: baseline !important;
+    margin-right: 10px;
 }
 
 .lastit ul {
@@ -842,14 +909,6 @@ section.intro-up {
 }
 
 @media (max-width: 576px) {
-    /* .content .container h5 {
-        font-size: 14px;
-    }
-    .content ul li,
-    .content ol li,
-    .content .container p {
-        font-size: 10px;
-    } */
     .content .img-dot {
         width: 8px;
     }
@@ -868,6 +927,10 @@ section.intro-up {
     }
     .students-clubs p {
         font-size: 12px;
+    }
+
+    .lastit .text {
+        font-size: 15px;
     }
 }
 
@@ -903,12 +966,6 @@ section.intro-up {
 
 .female-dorm ul.second {
     padding-right: 88px;
-}
-
-@media (max-width: 576px) {
-    .scholarship-services {
-        margin-bottom: 200px;
-    }
 }
 
 @media (min-width: 768px) {
