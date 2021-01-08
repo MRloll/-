@@ -178,6 +178,11 @@ section.direction {
     *********** start Header *************
     **********************************************
 */
+
+.top-icon {
+    height: 111px;
+}
+
 .top-icon,
 header .top-icon {
     overflow: hidden;
@@ -633,6 +638,14 @@ header .navbar .logo-container {
     *********** start intro logos  *************
     **********************************************
 */
+.video-vemo-container {
+    position: relative;
+    z-index: 2;
+}
+
+.video-vemo-container iframe {
+    height: 500px;
+}
 
 section.intro-up {
     padding: 30px 0;
@@ -647,6 +660,13 @@ section.intro-up {
 }
 
 .intro-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
     min-height: 500px;
     padding-bottom: 20px;
 }
@@ -681,6 +701,9 @@ section.intro-up {
     }
     .intro-logo {
         min-height: unset;
+    }
+    .video-vemo-container iframe {
+        height: 200px;
     }
 }
 

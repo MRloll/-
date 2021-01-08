@@ -361,10 +361,77 @@ flag++;
         } else {
             $("body").css("overflow", "auto");
         }
-
     });
 
-    $(".mobile-direction").on("swiperight")
+
+    // var atTop = true,
+    //     bottom = false,
+    //     touchPos = 0,
+    //     distance = 0;
+
+    // $(window).on({
+
+    //     scroll: function() {
+    //         if($(window).scrollTop() == 0) {
+                
+    //             atTop = true;
+    //             bottom = false; 
+    //             distance = 0;
+    //             console.log("yea");
+
+    //         } else if($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+    //             bottom = true;
+    //             atTop = false;
+    //         } else {
+    //             bottom = false;
+    //             atTop = false;
+    //         }
+    //     },
+    //     touchstart: function(event) {
+    //         touchPos = event.touches[0].clientY;
+    //     },
+    //     touchmove: function (event) {
+    //         if(atTop) {
+    //             distance = Math.abs(touchPos - event.touches[0].clientY);
+    //             if (distance > 200) {
+    //                 touchPos = 0;
+    //                 $("body header").css({
+    //                     "padding-bottom": 0,
+    //                     "transition": "0.5s padding ease"
+    //                 });
+    //             } else {
+    //                 $("body header").css({
+    //                     "padding-bottom": distance,
+    //                     "transition": "0s padding ease"
+    //                 });
+    //             }
+    //         } else {
+    //             distance = 0;
+    //         }
+    //         console.log(distance)
+    //     },
+    //     touchend: function () {
+    //         if(atTop) {
+    //             if (distance > 200) {
+    //                 console.log(distance);
+    //                 setTimeout(function () {
+    //                     if(distance > 50 && atTop) {
+    //                         history.back()
+    //                     }
+    //                 }, 100)
+    //             }
+    //         }else {
+    //             distance = 0;
+    //             touchPos = 0;
+    //         }
+    //         $("body header").css({
+    //             "padding-bottom": 0,
+    //             "transition": "0.5s padding ease"
+    //         });
+
+    //     }
+    // })
 
 });
 
