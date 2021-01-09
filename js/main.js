@@ -1,4 +1,6 @@
 /*global console*/
+var swp;
+
 $(function(){
 
 
@@ -339,12 +341,12 @@ flag++;
     //  Start Icons in the department-content.html 
     ///***********************************************
     /////////////////////////////////////////////////
-        $(".content-d1-last .lastit li.phone").click(function(e) {
-            if($(window).outerWidth() > 576) {
-                e.preventDefault();
-                $(this).find(".data").toggle(400).parent().siblings().find(".data").hide(400);
-            }
-        });    
+    $(".content-d1-last .lastit li.phone").click(function(e) {
+        if($(window).outerWidth() > 576) {
+            e.preventDefault();
+            $(this).find(".data").toggle(400).parent().siblings().find(".data").hide(400);
+        }
+    });    
 
 
 
@@ -364,75 +366,82 @@ flag++;
     });
 
 
-    // var atTop = true,
-    //     bottom = false,
-    //     touchPos = 0,
-    //     distance = 0;
 
-    // $(window).on({
+    /////////////////////////////////////////////////
+    ///**********************************************
+    //      Swipe UP and Swipe Down button
+    ///***********************************************
+    /////////////////////////////////////////////////
+    $(window).on("load resize", function() {
+        $(".wrapper.slide-up, .wrapper.slide-up .slide").height($(window).outerHeight() - $("header").outerHeight())
+    })
 
-    //     scroll: function() {
-    //         if($(window).scrollTop() == 0) {
+
+
+
+    var atTop = true,
+        distance = 0,
+        touchPos = null,
+        touchStartPos,
+        swipeDown = $("body .swipe-down");
+
+    if(swipeDown[0]) {
+        $("body").css("padding-bottom", "40px")
+
+        $(window).on({
+            scroll: function() {
+                if(swipeDown) {
+                    if($(window).scrollTop() == 0) {
+    
+                        atTop = true;
+                    } else {
+                        atTop = false;
+                    }    
+                }
+            },
+            touchstart: function(event) {
+                touchPos = event.touches[0].clientY;
+                touchStartPos = event.touches[0].pageY;
+    
+            },
+            touchmove: function (event) {
+                distance = Math.abs(touchPos - event.touches[0].clientY);
                 
-    //             atTop = true;
-    //             bottom = false; 
-    //             distance = 0;
-    //             console.log("yea");
+                if(touchStartPos < $(window).height() / 2  && atTop) {
+                    $("body header").css({
+                        "padding-bottom": distance,
+                        "transition": "0s padding ease"
+                    });    
+                }
+            },
+            touchend: function () {
+                $("body header").css({
+                    "padding-bottom": 0,
+                    "transition": "0.5s padding ease"
+                });    
+                if(touchStartPos < $(window).height() / 2  && atTop && distance > 100) {
+                    history.back()
+                }
+            }
+        });
+    
+    }
 
-    //         } else if($(window).scrollTop() + $(window).height() == $(document).height()) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        $(".video").parent().attr("href", "index.html")
+    }    
+       
 
-    //             bottom = true;
-    //             atTop = false;
-    //         } else {
-    //             bottom = false;
-    //             atTop = false;
-    //         }
-    //     },
-    //     touchstart: function(event) {
-    //         touchPos = event.touches[0].clientY;
-    //     },
-    //     touchmove: function (event) {
-    //         if(atTop) {
-    //             distance = Math.abs(touchPos - event.touches[0].clientY);
-    //             if (distance > 200) {
-    //                 touchPos = 0;
-    //                 $("body header").css({
-    //                     "padding-bottom": 0,
-    //                     "transition": "0.5s padding ease"
-    //                 });
-    //             } else {
-    //                 $("body header").css({
-    //                     "padding-bottom": distance,
-    //                     "transition": "0s padding ease"
-    //                 });
-    //             }
-    //         } else {
-    //             distance = 0;
-    //         }
-    //         console.log(distance)
-    //     },
-    //     touchend: function () {
-    //         if(atTop) {
-    //             if (distance > 200) {
-    //                 console.log(distance);
-    //                 setTimeout(function () {
-    //                     if(distance > 50 && atTop) {
-    //                         history.back()
-    //                     }
-    //                 }, 100)
-    //             }
-    //         }else {
-    //             distance = 0;
-    //             touchPos = 0;
-    //         }
-    //         $("body header").css({
-    //             "padding-bottom": 0,
-    //             "transition": "0.5s padding ease"
-    //         });
-
-    //     }
-    // })
-
+    if($('.wrapper.slide-up .holder')[0]) {
+        $('.wrapper.slide-up .holder').slick({
+            dots: false,
+            arrows: false,      
+            slidesToShow: 1,
+            vertical: true,
+            infinite: false,
+            draggable: true,
+            touchMove: true,
+            verticalSwiping: true
+        })    
+    }    
 });
-
-  

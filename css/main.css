@@ -16,7 +16,7 @@ body {
     background-size: cover;
     min-height: 100vh;
     position: relative;
-    padding-bottom: 80px;
+    animation-duration: 10s;
 }
 
 .custom-container {
@@ -82,6 +82,8 @@ a {
     position: absolute;
     bottom: 0;
     transition: all 0.4s ease-out;
+    cursor: pointer;
+    padding: 0;
 }
 
 section.direction {
@@ -495,6 +497,8 @@ header .navbar .logo-container {
 .content-d1-last {
     background-color: white;
 }
+
+.home-button,
 .download-book button {
     background-color: #2f3891;
     border-color: transparent;
@@ -659,16 +663,26 @@ section.intro-up {
     font-size: 12px;
 }
 
+.videoWelcom,
 .intro-logo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
     display: flex;
     align-items: center;
     width: 100%;
     min-height: 500px;
     padding-bottom: 20px;
+    height: 100%;
+}
+
+.wrapper.slide-up {
+    overflow: hidden;
+}
+
+.wrapper.slide-up .slide {
+    overflow: hidden;
+}
+
+.wrapper.slide-up .holder {
+    transition: 1s transform ease;
 }
 
 .intro-logo p {
@@ -701,6 +715,7 @@ section.intro-up {
     }
     .intro-logo {
         min-height: unset;
+        position: relative;
     }
     .video-vemo-container iframe {
         height: 200px;
@@ -836,7 +851,7 @@ section.intro-up {
     *********** start content *************
     **********************************************
 */
-.content .row > div {
+.content {
     background-image: url(../img/IMG_8212.png);
     background-size: cover;
     background-color: white;
