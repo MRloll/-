@@ -652,7 +652,7 @@ header .navbar .logo-container {
 }
 
 .video-vemo-container iframe {
-    height: 500px;
+    height: 400px;
 }
 
 section.intro-up {
@@ -733,18 +733,6 @@ section.intro-up {
     }
     .intro-logo .contact-logo img {
         width: 150px;
-    }
-}
-
-@media (max-width: 1999px) {
-    .video-vemo-container iframe {
-        height: 330px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .video-vemo-container iframe {
-        height: 500px;
     }
 }
 .dc1 {
