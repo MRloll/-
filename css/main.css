@@ -492,6 +492,7 @@ header .navbar .logo-container {
 .download-book {
     position: relative;
     z-index: 2;
+    margin-right: 0px;
 }
 
 .content-d1-last {
@@ -538,6 +539,9 @@ header .navbar .logo-container {
     }
     .home-carousel .carousel-item #nested-carousel .text ul {
         font-size: 21px;
+    }
+    .download-book {
+        margin-right: 100px;
     }
 }
 
@@ -668,7 +672,7 @@ section.intro-up {
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 500px;
+    min-height: 450px;
     padding-bottom: 20px;
     height: 100%;
 }
@@ -729,6 +733,18 @@ section.intro-up {
     }
     .intro-logo .contact-logo img {
         width: 150px;
+    }
+}
+
+@media (max-width: 1999px) {
+    .video-vemo-container iframe {
+        height: 330px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .video-vemo-container iframe {
+        height: 500px;
     }
 }
 .dc1 {
