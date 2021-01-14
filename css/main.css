@@ -60,6 +60,20 @@ section {
     *********** Start General Items  *************
     **********************************************
 */
+/* Fonts */
+.f-25 {
+    font-size: 25px;
+}
+/* ********** */
+.lh-1 {
+    line-height: 1;
+}
+
+.lh-n {
+    line-height: 1.5;
+}
+
+a:visited,
 a:hover,
 a {
     color: inherit;
@@ -495,10 +509,6 @@ header .navbar .logo-container {
     margin-right: 0px;
 }
 
-.content-d1-last {
-    background-color: white;
-}
-
 .home-button,
 .download-book button {
     background-color: #2f3891;
@@ -669,12 +679,7 @@ section.intro-up {
 
 .videoWelcom,
 .intro-logo {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    min-height: 450px;
-    padding-bottom: 20px;
-    height: 100%;
+    padding-top: 100px;
 }
 
 .wrapper.slide-up {
@@ -693,7 +698,9 @@ section.intro-up {
 .intro-logo p {
     font-size: 30px;
 }
-
+.intro-logo a {
+    color: white;
+}
 .intro-logo ul li {
     display: inline-block;
     margin-left: 10px;
@@ -734,74 +741,6 @@ section.intro-up {
     .intro-logo .contact-logo img {
         width: 150px;
     }
-}
-.dc1 {
-    background-color: #99c7da;
-}
-
-.dc2 {
-    background-color: #129b9f;
-}
-
-.dc3 {
-    background-color: #6ebdc3;
-}
-
-.dc4 {
-    background-color: #007eb9;
-}
-
-.dc5 {
-    background-color: #00568e;
-}
-
-.dc6 {
-    background-color: #1b4596;
-}
-
-.dc7 {
-    background-color: #141d50;
-}
-
-.dc8 {
-    background-color: #00388e;
-}
-
-.dc9 {
-    background-color: #4aa0ca;
-}
-
-.dc10 {
-    background-color: #443c90;
-}
-
-.dc11 {
-    background-color: #602c86;
-}
-
-.dc12 {
-    background-color: #a1559c;
-}
-
-.dc13 {
-    background-color: #756cae;
-}
-
-.dc14 {
-    background-color: #421e69;
-}
-
-/* Fonts */
-.f-25 {
-    font-size: 25px;
-}
-/* ********** */
-.lh-1 {
-    line-height: 1;
-}
-
-.lh-n {
-    line-height: 1.5;
 }
 
 /*
@@ -860,6 +799,7 @@ section.intro-up {
     background-image: url(../img/IMG_8212.png);
     background-size: cover;
     background-color: white;
+    background-position: center center;
 }
 
 .content .note p {
@@ -911,6 +851,7 @@ section.intro-up {
     width: 38%;
     cursor: pointer;
     vertical-align: baseline;
+    font-size: 12px;
 }
 
 .lastit button {
@@ -921,6 +862,10 @@ section.intro-up {
 .lists button img {
     vertical-align: baseline !important;
     margin-right: 10px;
+}
+.lastit span.text {
+    padding: 0;
+    width: auto;
 }
 
 .lastit ul {
@@ -950,6 +895,7 @@ section.intro-up {
 
 .lastit-width {
     max-width: 800px;
+    margin-right: 76px;
 }
 
 @media (max-width: 576px) {
@@ -965,16 +911,19 @@ section.intro-up {
         margin: 0;
         margin-top: 20px;
     }
-    .lists button,
-    .lastit button {
-        font-size: 10px;
-    }
     .students-clubs p {
         font-size: 12px;
     }
 
     .lastit .text {
         font-size: 15px;
+    }
+    .lastit-width {
+        margin-right: 0;
+    }
+    .lastit span.text {
+        padding: 0;
+        width: 56%;
     }
 }
 
@@ -1052,7 +1001,8 @@ section.intro-up {
 }
 
 .feed button {
-    width: 25%;
+    width: 24%;
+    font-size: 12px;
 }
 
 @media (max-width: 1200px) {

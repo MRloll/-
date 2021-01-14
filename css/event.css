@@ -22,7 +22,7 @@
     background-color: white;
 }
 
-.events .table th[class^="dc"]::before {
+.events .table th[class^="dc"] span {
     position: absolute;
     content: "";
     top: 0;
@@ -32,61 +32,6 @@
     background: red;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-}
-
-.events .custom-table th.dc-1::before {
-    background: var(--dc1);
-}
-.events .custom-table th.dc-2::before {
-    background: var(--dc2);
-}
-
-.events .custom-table th.dc-3::before {
-    background: var(--dc3);
-}
-
-.events .custom-table th.dc-4::before {
-    background: var(--dc4);
-}
-
-.events .custom-table th.dc-5::before {
-    background: var(--dc5);
-}
-
-.events .custom-table th.dc-6::before {
-    background: var(--dc6);
-}
-
-.events .custom-table th.dc-7::before {
-    background: var(--dc7);
-}
-
-.events .custom-table th.dc-8::before {
-    background: var(--dc8);
-}
-
-.events .custom-table th.dc-9::before {
-    background: var(--dc9);
-}
-
-.events .custom-table th.dc-10::before {
-    background: var(--dc10);
-}
-
-.events .custom-table th.dc-11::before {
-    background: var(--dc11);
-}
-
-.events .custom-table th.dc-12::before {
-    background: var(--dc12);
-}
-
-.events .custom-table th.dc-13::before {
-    background: var(--dc13);
-}
-
-.events .custom-table th.dc-14::before {
-    background: var(--dc14);
 }
 
 .events .custom-table thead tr th {

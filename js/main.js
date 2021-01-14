@@ -426,10 +426,6 @@ flag++;
         });
     
     }
-
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        $(".video").parent().attr("href", "index.html")
-    }    
        
 
     if($('.wrapper.slide-up .holder')[0]) {
