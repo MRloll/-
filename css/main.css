@@ -14,6 +14,7 @@ body {
     box-sizing: border-box;
     background-image: url(../img/IMG_8212.png);
     background-size: cover;
+    background-position: center center;
     min-height: 100vh;
     position: relative;
     animation-duration: 10s;
@@ -237,6 +238,11 @@ header .top-icon img.video {
     z-index: 1;
 }
 
+.top-icon img.video-white {
+    width: 49px;
+    top: 31px;
+}
+
 header .navbar .navbar-brand {
     font-size: 15px;
 }
@@ -327,6 +333,11 @@ header .navbar .logo-container {
         width: 19px;
         top: 24px;
         left: 24px;
+    }
+
+    .top-icon img.video-white {
+        width: 37px;
+        top: 14px;
     }
 
     header .navbar .nav-toggler {
@@ -795,13 +806,6 @@ section.intro-up {
     *********** start content *************
     **********************************************
 */
-.content {
-    background-image: url(../img/IMG_8212.png);
-    background-size: cover;
-    background-color: white;
-    background-position: center center;
-}
-
 .content .note p {
     width: 90%;
     line-height: 2;
@@ -836,7 +840,6 @@ section.intro-up {
     border-radius: 6px;
     border-color: rgba(0, 0, 0, 0.1);
     margin-left: 5%;
-    width: 56%;
     outline: none;
 }
 
@@ -923,7 +926,6 @@ section.intro-up {
     }
     .lastit span.text {
         padding: 0;
-        width: 56%;
     }
 }
 
