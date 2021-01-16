@@ -365,20 +365,6 @@ flag++;
         }
     });
 
-
-
-    /////////////////////////////////////////////////
-    ///**********************************************
-    //      Swipe UP and Swipe Down button
-    ///***********************************************
-    /////////////////////////////////////////////////
-    $(window).on("load resize", function() {
-        $(".wrapper.slide-up, .wrapper.slide-up .slide").height($(window).outerHeight() - $("header").outerHeight())
-    })
-
-
-
-
     var atTop = true,
         distance = 0,
         touchPos = null,
