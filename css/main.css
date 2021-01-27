@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.en-numbers {
+    font-family: "Noto Sans JP";
+}
+
 @font-face {
     font-family: GE-Dinar;
     src: url(../fonts/GE-Dinar-One-Medium.otf);
@@ -33,6 +37,15 @@ body {
 @media (min-width: 576px) {
     .custom-container {
         width: 90%;
+    }
+}
+
+@media (min-width: 991px) {
+    .custom-container.home-container {
+        width: 82%;
+    }
+    .custom-container.cards-container {
+        width: 70%;
     }
 }
 
@@ -111,6 +124,13 @@ section.direction {
     margin: 0 !important;
     padding: 0;
     z-index: 1;
+}
+section.home-direction {
+    position: relative;
+    left: 23px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .direction i {
@@ -246,6 +266,8 @@ header .top-icon img.video {
 
 header .navbar .navbar-brand {
     font-size: 15px;
+    position: relative;
+    z-index: 2;
 }
 
 header .navbar ul.navbar-nav li.nav-item {
@@ -556,9 +578,6 @@ header .navbar .logo-container {
 }
 
 @media (min-width: 768px) {
-    .home-carousel .links ul li {
-        font-size: 30px;
-    }
     .home-carousel .carousel-item #nested-carousel .text ul {
         font-size: 21px;
     }
@@ -675,6 +694,7 @@ header .navbar .logo-container {
 
 .video-vemo-container iframe {
     height: 400px;
+    max-width: 650px;
 }
 
 section.intro-up {
@@ -683,6 +703,8 @@ section.intro-up {
 
 .intro-up .logo-container img {
     width: 200px;
+    position: relative;
+    z-index: 2;
 }
 
 .intro-up small {
@@ -711,8 +733,9 @@ section.intro-up {
 }
 
 .wrapper.slide-up .slide .mobile-direction {
-    position: relative;
-    margin-top: 30px;
+    position: absolute;
+    bottom: 150px;
+    right: 0;
 }
 
 .wrapper.slide-up .holder {
@@ -847,12 +870,20 @@ section.intro-up {
     z-index: 1;
 }
 
+.lastit .row > div:first-of-type {
+    width: 100%;
+}
+.lastit .row > div {
+    width: 100%;
+}
+
 .lastit .text,
 .lists select {
     padding: 10px 16px;
     border-radius: 6px;
     border-color: rgba(0, 0, 0, 0.1);
     margin-left: 5%;
+    width: 53%;
     outline: none;
 }
 
@@ -910,7 +941,6 @@ section.intro-up {
 }
 
 .lastit-width {
-    max-width: 800px;
     margin-right: 76px;
 }
 
@@ -939,6 +969,15 @@ section.intro-up {
     }
     .lastit span.text {
         padding: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .lastit .row > div:first-of-type {
+        width: 400px;
+    }
+    .lastit .row > div {
+        width: auto;
     }
 }
 
@@ -994,7 +1033,6 @@ section.intro-up {
     .scholarship-services h3 {
         font-size: 30px;
     }
-    .female-dorm p,
     .scholarship-services ul li p {
         font-size: 25px;
     }
@@ -1046,5 +1084,9 @@ section.intro-up {
     }
     .contact-us ul li img {
         width: 40px;
+    }
+    .female-dorm-terms,
+    .female-dorm-terms h5 {
+        font-size: 12px;
     }
 }

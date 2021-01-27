@@ -29,74 +29,68 @@ flag++;
 
 
     //displaying and hiding the ites on click
-    $(".info .wrapper .item, .investment-sites .wrapper .item .details").on("click", function(e) {
-        var allDetails = $(this).parents(".row, .custom-row").children()
-                                .find(".item .details")
-                                .not($(this).find(".details"));
-        
-        if(allDetails.is(":visible")) {
-            return;
-        } else {
-            $(this).find(".details").fadeToggle();
-        }
-
-    })
+    $(".info .wrapper .item, .investment-sites .wrapper .item .details").on("click", function() {        
+            $(this).find(".details").fadeToggle().parents(".row, .custom-row").children()
+                                    .find(".item .details")
+                                    .not($(this).find(".details")).fadeOut();
+    });
 
     
-    var investmentItemWrapper = $(".investment-sites .custom-row .wrapper .holder"),
-        info = $(".info .wrapper .item");
+    // var investmentItemWrapper = $(".investment-sites .custom-row .wrapper .holder"),
+    //     info = $(".info .wrapper .item");
     //this function adjusts the height of the detaials depend on the item height 
     //mutiblied by 3 times
     //and also adjusts the width 
-    function adjustHeightAndWidth() {
-            detailsWidth = investmentItemWrapper.outerWidth(),
-            detailsHeight = investmentItemWrapper.outerHeight();
-            detailsHeightInInfor =  info.outerHeight();
+    // function adjustHeightAndWidth() {
+    //         detailsWidth = investmentItemWrapper.outerWidth();
+        //     detailsHeight = investmentItemWrapper.outerHeight();
+        //     detailsHeightInInfor =  info.outerHeight();
 
-        if($(window).width() < 991) {
-            $(".info .wrapper .item .details")
-                .css({"min-height": detailsHeightInInfor * 2 + 30, "height": "auto"})
-        }
+        // if($(window).width() < 991) {
+        //     $(".info .wrapper .item .details")
+        //         .css({"min-height": detailsHeightInInfor * 2 + 30, "height": "auto"})
+        // }
 
         //making Details height equal for three Items
-        $(".investment-sites .wrapper .item .details")
-            .css({"min-height": detailsHeight * 3 + 60, "height": "auto"})
-            .outerWidth(detailsWidth)
+        // $(".investment-sites .wrapper .item .details")
+        //     .css({"min-height": detailsHeight * 3 + 60, "height": "auto"})
+        //     .outerWidth(detailsWidth)
         
         //making Detials width equal for two Items in small screens
-        if($(window).outerWidth() < 991) {
+        // if($(window).outerWidth() < 991) {
 
             //commented bcs the client needs the boxes open to dowm
-            $(".investment-sites .wrapper span.vertical-detector").css("bottom", -detailsHeight - 100)
-            $(".investment-sites .wrapper .item .details")
-                .outerWidth(detailsWidth * 2 + 30)
-        } else {
-            $(".investment-sites .wrapper span.vertical-detector").css("bottom", "-100px")
-        }
+            // $(".investment-sites .wrapper span.vertical-detector").css("bottom", -detailsHeight - 100)
+        //     $(".investment-sites .wrapper .item .details")
+        //         .outerWidth(detailsWidth * 2 + 30)
+        // } else {
+        //     $(".investment-sites .wrapper span.vertical-detector").css("bottom", "-100px");
+        //     $(".investment-sites .wrapper .item .details").css("width", "100%")
+        // }
 
         
         //making the second row of items opens to top 
         //not to bottom just to stay in the continer  
         //only on xlarge screens 
-        $(investmentItemWrapper).each(function() {
-            if($(window).outerWidth() > 1200) {
-                if($(this).parent().position().top == $(this).parent().outerHeight(true) ) {
-                    $(this).find(".details").css({
-                        "top": "calc(-100% - 30px)"
-                    })
-                }
-            } else {
-                $(this).find(".details").css({
-                    "top": "0"
-                })
-            }
-        });
-    }
-    adjustHeightAndWidth();
+        // $(investmentItemWrapper).each(function() {
+        //     if($(window).outerWidth() > 1200) {
+        //         if($(this).parent().position().top == $(this).parent().outerHeight(true) ) {
+        //             $(this).find(".details").css({
+        //                 "top": "calc(-100% - 30px)"
+        //             })
+        //         }
+        //     } else {
+        //         $(this).find(".details").css({
+        //             "top": "0"
+        //         })
+        //     }
+        // });
+    // }
+    // adjustHeightAndWidth();
 
 
     var horizontalDetectorSpans = $(".investment-sites .custom-row .wrapper span.horizontal-detector"),
-        verticalalDetectorSpans = $(".investment-sites .custom-row .wrapper span.vertical-detector"),  //commented bcs the client needs the boxes open to dowm
+        // verticalalDetectorSpans = $(".investment-sites .custom-row .wrapper span.vertical-detector"),  //commented bcs the client needs the boxes open to dowm
         customRow = $(".investment-sites .custom-row");
     function detectingOffset() {
         if(customRow.offset()) {
@@ -124,16 +118,16 @@ flag++;
         //making the lowest row of items opens to top 
         //not to bottom just to stay in the continer
         //only on xlarge screens 
-        verticalalDetectorSpans.each(function() {
-            if($(window).outerWidth() > 1200) {
-                if($(this).offset().top > customRowBottomOffset && verticalalDetectorSpans.length > 12) {
-                    $(this).parents(".wrapper").find(".item .details").css({
-                        "top": "calc(-200% - 60px)",
-                        "height": "auto"
-                    })
-                }
-            }
-        });
+        // verticalalDetectorSpans.each(function() {
+        //     if($(window).outerWidth() > 1200) {
+        //         if($(this).offset().top > customRowBottomOffset && verticalalDetectorSpans.length > 12) {
+        //             $(this).parents(".wrapper").find(".item .details").css({
+        //                 "top": "calc(-200% - 60px)",
+        //                 "height": "auto"
+        //             })
+        //         }
+        //     }
+        // });
 
     }
     detectingOffset()
@@ -141,7 +135,7 @@ flag++;
 
 
     $(window).on("resize", function() {
-        adjustHeightAndWidth();
+        // adjustHeightAndWidth();
         detectingOffset();
     })
 
@@ -412,6 +406,10 @@ flag++;
         });
     
     }
+
+    $('.wrapper.slide-up .holder .slide').css({
+        "height": "calc(100vh - " + $("header").outerHeight() + "px)"
+    })
        
 
     if($('.wrapper.slide-up .holder')[0]) {

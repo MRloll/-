@@ -87,9 +87,19 @@
 }
 
 @media (max-width: 767px) {
+    table td,
+    table thead th {
+        padding: 0 !important;
+    }
     .events .custom-table thead th,
     .events .custom-table tbody th,
     .events .custom-table tbody td {
         font-size: 10px;
     }
+    /* .date {
+        padding: 0 !important;
+    }
+    .location {
+        width: 50px !important;
+    } */
 }
